@@ -72,15 +72,44 @@ function playRound(playerSelection, computerSelection) {
 }
 function game(playRound) {
   let round;
-  let playerScore;
-  let computerScore;
+  let playerScore = 0;
+  let computerScore = 0;
+
+  let playerInput = prompt("Do you want to choose Rock, Paper, or Scissors?");
+  if (playerInput === null) {
+    playerInput = "";
+  }
+  playerInput = playerInput.toLowerCase();
+  console.log(playerInput);
+  console.log(typeof playerInput);
+
+  if (
+    playerInput !== "rock" &&
+    playerInput !== "scissors" &&
+    playerInput !== "paper"
+  ) {
+    console.log("Invalid Entry. Enter Rock, Paper, or Scissors");
+  }
   for (let i = 0; i < 5; i++) {
-    round = playRound("scissors", computerPlay());
+    round = playRound(playerInput, computerPlay());
     if (round.includes("win")) {
       playerScore += 1;
+    } else if (round.includes("lose!")) {
+      computerScore += 1;
     }
+    console.log(`Computer: ${computerScore}`);
+    console.log(`Player: ${playerScore}`);
+  }
+  if (computerScore > playerScore) {
+    console.log("Computer wins best 3 out of 5");
+  } else if (playerScore > computerScore) {
+    console.log("Player wins best 3 out of 5");
+  } else {
+    console.log("It is a tie");
   }
 }
-playRound("scissors", computerPlay());
+// playRound("scissors", computerPlay());
+
+game(playRound);
 // Two parameters the playerSelection and computerSelection
 // Then return a string that declares winner make playerSelection parameter case-insensitive
