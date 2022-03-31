@@ -1,0 +1,21 @@
+.rock-btn {
+  background-color: aquamarine;
+}
+
+.paper-btn {
+  background-color: azure;
+}
+.scissors-btn {
+  background-color: paleturquoise;
+}
+
+.results {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  text-overflow: ellipsis;
+
+  width: 1000px;
+  height: 400px;
+  color: rgb(122, 122, 122);
+}
